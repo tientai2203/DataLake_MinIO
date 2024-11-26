@@ -14,12 +14,14 @@ services:
 
   metastore_db:
     container_name: datalake-metastore-db
-    image: postgres:11
+    image: postgres:15
     hostname: metastore_db
     environment:
       POSTGRES_USER: hive
       POSTGRES_PASSWORD: hive
       POSTGRES_DB: metastore
+    ports:
+      - "5432:5432"                 
 
   hive-metastore:
     container_name: datalake-hive-metastore
